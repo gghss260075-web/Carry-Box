@@ -1,0 +1,6 @@
+{
+  "name": "험난한 힘의 탑(Human Force Fall)",
+  "description": "Human: Fall Flat 스타일의 3D 물리 기반 협동 및 대전 액션 게임. 중력, 마찰력, 탄성력, 부력 4대 과학적 힘을 활용해 장애물을 돌파하고 상자를 운반하세요.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,48 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User account profile including character customizations and stats",
+      "type": "object",
+      "properties": {
+        "username": { "type": "string", "maxLength": 64 },
+        "color": { "type": "string", "maxLength": 32 },
+        "hat": { "type": "string", "maxLength": 64 },
+        "shirt": { "type": "string", "maxLength": 64 },
+        "pants": { "type": "string", "maxLength": 64 },
+        "unlockedCosmetics": { "type": "array" },
+        "wins": { "type": "number" },
+        "losses": { "type": "number" },
+        "boxesDelivered": { "type": "number" },
+        "coopClears": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["username", "color", "hat", "shirt", "pants"]
+    },
+    "MatchRecord": {
+      "title": "MatchRecord",
+      "description": "Historical record of completed matches",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "mapId": { "type": "string", "maxLength": 64 },
+        "modeId": { "type": "string", "maxLength": 64 },
+        "winnerTeam": { "type": "string", "maxLength": 32 },
+        "clearTimeSeconds": { "type": "number" },
+        "boxesDelivered": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "mapId", "modeId", "winnerTeam"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User public/private profile document"
+    },
+    "/users/{userId}/matches/{matchId}": {
+      "schema": "MatchRecord",
+      "description": "Matches recorded by user"
+    }
+  }
+}
